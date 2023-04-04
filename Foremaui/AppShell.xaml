@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Foremaui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Foremaui"
+    xmlns:views="clr-namespace:Foremaui.Views"
+    Shell.FlyoutBehavior="Flyout"
+    FlyoutIcon="menu.png"
+    FlyoutBackgroundColor="#611313" 
+    FlyoutWidth="200" 
+    FlyoutBackgroundImage="norway.png" 
+    FlyoutBackgroundImageAspect="AspectFill">
+
+
+    <!--data show-->
+    <FlyoutItem>
+        <ShellContent Title="Today" Icon="sun_white.png"
+        ContentTemplate="{DataTemplate views:Today}"
+        Shell.NavBarIsVisible="true"/>
+
+
+        <ShellContent Title="Daily" Icon="calendar.png"
+        ContentTemplate="{DataTemplate views:Daily}"
+        Shell.NavBarIsVisible="true" />
+
+        <ShellContent Title="Map" Icon="map.png"
+        ContentTemplate="{DataTemplate views:Map}"
+        Shell.NavBarIsVisible="true"/>
+    </FlyoutItem>
+
+    <!--settings and about page-->
+    <FlyoutItem Title="Settings" Icon="settings_white.png">
+        
+        <ShellContent Title="Settings" Icon="settings_white.png"
+        ContentTemplate="{DataTemplate views:Settings}"/>
+
+        <ShellContent Title="About" Icon="info.png"
+        ContentTemplate="{DataTemplate views:AboutPage}"/>
+        
+    </FlyoutItem>
+
+    
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="{AppThemeBinding Dark=#95FFFFFF, Light=#95000000}" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkBackground}, Light={StaticResource LightBackground}}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="{AppThemeBinding Dark={StaticResource LightBackground}, Light={StaticResource DarkBackground}}" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{AppThemeBinding Dark=#95FFFFFF, Light=#95000000}" />
+                <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Dark={StaticResource Tertiary}, Light={StaticResource Primary}}" />
+                <Setter Property="Shell.WidthRequest" Value="20"/>
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+</Shell>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Foremaui.Views.Settings"
+             xmlns:viewModels="clr-namespace:MauiMeteo.ViewModels"
+             xmlns:models="clr-namespace:Foremaui.Models"
+             x:DataType="viewModels:SettingsViweModel"
+             Title="Settings">
+
+    <ContentPage.BindingContext>
+        <viewModels:SettingsViweModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+
+            <Entry x:Name="DefaultCity" Placeholder="Enter City Name" Text="{Binding DefaultCity}" ReturnCommand="{Binding SetDefaultCityByEntryCommand}"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="1"/>
+            <Button ImageSource="map_user.png" Command="{Binding setDefaultCityByLocationCommand}"   Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="1"/>
+            <RadioButton> </RadioButton>
+
+
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
