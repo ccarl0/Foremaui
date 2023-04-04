@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Foremaui.Views.MoreInfoDailyPage"
+             xmlns:viewModels="clr-namespace:Foremaui.ViewModels"
+             xmlns:models="clr-namespace:Foremaui.Models"
+             x:DataType="models:Daily"
+             Title="MoreInfoDailyPage">
+    <ContentPage.Resources>
+        <Style TargetType="Frame" >
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource Primary}, Light={StaticResource Tertiary}}" />
+        </Style>
+
+        <Style TargetType="Frame" x:Key="small_tiles">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource Primary}, Light={StaticResource Tertiary}}" />
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="Padding" Value="0,25"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="CornerRadius" Value="50"/>
+        </Style>
+
+        <Style TargetType="ScrollView" >
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource Tertiary}, Light={StaticResource Primary}}" />
+        </Style>
+        <Style TargetType="Grid" >
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource Tertiary}, Light={StaticResource Primary}}" />
+        </Style>
+
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <Grid ColumnSpacing="10" RowSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+
+            <!--Icon-->
+            <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <StackLayout>
+                    
+                </StackLayout>
+            </Frame>
+
+            <!--Sun and Moon-->
+            <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="0" Grid.RowSpan="2">
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="Sun"           Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+                        <Label x:Name="sunRise"     Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+                        <Label x:Name="sunSet"      Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <Frame Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="0" Grid.RowSpan="2">
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="Moon"           Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+                        <Label x:Name="moonRise"     Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+                        <Label x:Name="moonSet"      Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+            <!--Temperature-->
+            <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="0,0,0,0">
+                <StackLayout>
+                    <Grid Margin="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="Temperature"       Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+                        <Label Text="Feels Like"        Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2"/>
+                        <Label x:Name="dayTemp"         Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+                        <Label x:Name="nighTemp"        Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+                        <Label x:Name="dayFl"           Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2"/>
+                        <Label x:Name="nighFl"          Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    </Grid>
+                    <!--<Label Text="Temperature"       Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1"/>
+                    <Label Text="Feels Like"        Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="1"/>
+                    <Label x:Name="dayTemp"         Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <Label x:Name="nighTemp"        Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <Label x:Name="dayFl"           Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <Label x:Name="nighFl"          Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2"/>-->
+                </StackLayout>
+            </Frame>
+
+            
+
+            <!--Wind and Atmo-->
+            <Frame Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="1" Grid.RowSpan="2">
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="Wind" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <Label Text="Speed"       Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+                        <Label Text="Direction"       Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
+                        <Label x:Name="windSpeed"       Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+                        <Label x:Name="windDir"       Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <Frame Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="0" Grid.RowSpan="2">
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+
+                        <Label Text="Atmosphere" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <Label Text="Humidity"       Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+                        <Label Text="Pressure"       Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
+                        <Label x:Name="humidity"       Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+                        <Label x:Name="pressure"       Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+
+        </Grid>
+    </ScrollView>
+   
+</ContentPage>

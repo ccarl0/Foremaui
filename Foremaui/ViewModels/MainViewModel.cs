@@ -19,8 +19,10 @@ using Foremaui.Platforms.Android;
 using Foremaui.Helpers;
 using Android.Preferences;
 using Android.Views.Inspectors;
+using Foremaui;
+using static Android.Content.ClipData;
 
-namespace MauiMeteo.ViewModels
+namespace Foremaui.ViewModels
 {
     public partial class MainViewModel : ObservableObject
     {
@@ -46,7 +48,7 @@ namespace MauiMeteo.ViewModels
 
 
 
-
+        Models.Daily dailyFc;
 
         //user fav
         [ObservableProperty]
@@ -66,7 +68,7 @@ namespace MauiMeteo.ViewModels
 
         public MainViewModel()
         {
-            if (Preferences.Default.Get("use_gps_on_startup", true))
+            if (Preferences.Default.Get("use_gps_on_startup", false))
             {
                GetUserForecastAsync();
             }
@@ -131,6 +133,19 @@ namespace MauiMeteo.ViewModels
                         if (forecast.Current != null)
                         {
                             Forecast = forecast;
+                            Forecast.Current.Date = UnixTimeStampToDateTime(Forecast.Current.Dt);
+                            Forecast.Current.SunRiseDt = UnixTimeStampToDateTime(Forecast.Current.Sunrise);
+                            Forecast.Current.SunSetDt = UnixTimeStampToDateTime(Forecast.Current.Sunset);
+                            foreach (var item in Forecast.Hourly)
+                            {
+                                item.Date = UnixTimeStampToDateTime(item.Dt);
+                            }
+                            foreach (var item in forecast.Daily)
+                            {
+                                item.Date = UnixTimeStampToDateTime(item.Dt);
+                                item.SunRiseDt= UnixTimeStampToDateTime(item.Sunrise);
+                                item.SunSetDt= UnixTimeStampToDateTime(item.Sunset);
+                            }
                         }
                     }
                 }
@@ -216,6 +231,18 @@ namespace MauiMeteo.ViewModels
             finally { IsGettingUserForecast = false; }
         }
 
+
+        [RelayCommand]
+        async Task GoToDetails(Models.Daily daily)
+        {
+            if (daily == null) return;
+            
+            
+            await App.Current.MainPage.Navigation.PushAsync(new MoreInfoDailyPage(daily));
+        }
+
+
+        
         
     }
 }

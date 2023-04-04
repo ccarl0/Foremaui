@@ -1,3 +1,5 @@
+using Foremaui.ViewModels;
+
 namespace Foremaui.Views;
 
 public partial class Daily : ContentPage
@@ -6,4 +8,6 @@ public partial class Daily : ContentPage
 	{
 		InitializeComponent();
 	}
+
+
 }

@@ -1,5 +1,5 @@
 using AndroidX.Lifecycle;
-using MauiMeteo.ViewModels;
+using Foremaui.ViewModels;
 using Java.Nio.FileNio.Attributes;
 
 namespace Foremaui.Views;

@@ -14,7 +14,7 @@
 
 
     <!--data show-->
-    <FlyoutItem>
+    <FlyoutItem Title="Forecast" Icon="sun_white.png">
         <ShellContent Title="Today" Icon="sun_white.png"
         ContentTemplate="{DataTemplate views:Today}"
         Shell.NavBarIsVisible="true"/>

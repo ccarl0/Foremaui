@@ -12,14 +12,20 @@ namespace Foremaui.Models
     // https://json2csharp.com/
     public class Current
     {
+        public DateTime Date { get; set; }
+
         [JsonPropertyName("dt")]
         public long Dt { get; set; }
 
         [JsonPropertyName("sunrise")]
         public long Sunrise { get; set; }
+        
+        public DateTime SunRiseDt { get; set; }
 
         [JsonPropertyName("sunset")]
         public long Sunset { get; set; }
+
+        public DateTime SunSetDt { get; set; }
 
         [JsonPropertyName("temp")]
         public float Temp { get; set; }
@@ -60,20 +66,30 @@ namespace Foremaui.Models
 
     public class Daily
     {
+        public DateTime Date { get; set; }
+
         [JsonPropertyName("dt")]
         public uint Dt { get; set; }
 
         [JsonPropertyName("sunrise")]
         public uint Sunrise { get; set; }
 
+        public DateTime SunRiseDt { get; set; }
+
         [JsonPropertyName("sunset")]
         public uint Sunset { get; set; }
+
+        public DateTime SunSetDt { get; set; }
 
         [JsonPropertyName("moonrise")]
         public uint Moonrise { get; set; }
 
+        public DateTime MonnRiseDt { get; set; }
+
         [JsonPropertyName("moonset")]
         public uint Moonset { get; set; }
+
+        public DateTime MoonSetDt { get; set; }
 
         [JsonPropertyName("moon_phase")]
         public float MoonPhase { get; set; }
@@ -132,6 +148,7 @@ namespace Foremaui.Models
 
     public class Hourly
     {
+
         [JsonPropertyName("dt")]
         public int Dt { get; set; }
         public DateTime Date { get; set; }

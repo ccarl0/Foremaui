@@ -21,7 +21,7 @@ using Android.Preferences;
 using Android.Views.Inspectors;
 using Java.Nio.FileNio.Attributes;
 
-namespace MauiMeteo.ViewModels
+namespace Foremaui.ViewModels
 {
     public partial class SettingsViweModel : ObservableObject
     {
@@ -121,7 +121,7 @@ namespace MauiMeteo.ViewModels
             }
             try
             {
-                Preferences.Default.Set("defaultCity", DefaultCity);
+                Preferences.Default.Set("fav_city", DefaultCity);
             }
             catch (Exception) { }
             finally
