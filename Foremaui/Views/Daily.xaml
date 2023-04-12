@@ -7,6 +7,7 @@
              x:DataType="viewModels:MainViewModel"
              x:Name="DailyPage"
              Title="Daily">
+    
     <ContentPage.Resources>
         <Style TargetType="Frame" >
             <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource Primary}, Light={StaticResource Tertiary}}" />

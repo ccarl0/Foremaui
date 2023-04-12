@@ -49,56 +49,60 @@
 
 
             <!--Icon-->
-            <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" CornerRadius="80">
                 <StackLayout>
-                    
+                    <Image x:Name="iconSource" Aspect="AspectFit" Margin="100,0,100,100" Scale="1.2"/>
                 </StackLayout>
             </Frame>
 
             <!--Sun and Moon-->
-            <Frame Grid.Column="0" Grid.Row="2" Grid.RowSpan="2">
-                <StackLayout>
-                    <Grid>
+            <Frame Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" CornerRadius="50">
+                <StackLayout Margin="0">
+                    <Grid BackgroundColor="Transparent">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Label Text="Sun"           Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
-                        <Label x:Name="sunRise"     Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
-                        <Label x:Name="sunSet"      Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+                        <Label Text="Sun"           Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" HorizontalOptions="Center" FontSize="Title"/>
+                        <Label Text="Sun Rise:"     Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
+                        <Label Text="Sun Set:"      Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
+                        <Label x:Name="sunRise"     Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center"/>
+                        <Label x:Name="sunSet"      Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Center"/>
                     </Grid>
                 </StackLayout>
             </Frame>
-            <Frame Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
-                <StackLayout>
-                    <Grid>
+            <Frame Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" CornerRadius="50">
+                <StackLayout >
+                    <Grid BackgroundColor="Transparent">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Label Text="Moon"           Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
-                        <Label x:Name="moonRise"     Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
-                        <Label x:Name="moonSet"      Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+                        <Label Text="Moon"           Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" HorizontalOptions="Center" Margin="0,1" FontSize="Title"/>
+                        <Label Text="Moon Rise:"      Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
+                        <Label Text="Moon Set:"      Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
+                        <Label x:Name="moonRise"     Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center"/>
+                        <Label x:Name="moonSet"      Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Center"/>
                     </Grid>
                 </StackLayout>
             </Frame>
 
             <!--Temperature-->
-            <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="0,0,0,0">
+            <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="0,0,0,0" CornerRadius="50">
                 <StackLayout>
-                    <Grid Margin="0">
+                    <Grid Margin="0" BackgroundColor="Transparent">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
@@ -106,17 +110,25 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Label Text="Temperature"       Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
-                        <Label Text="Feels Like"        Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2"/>
-                        <Label x:Name="dayTemp"         Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
-                        <Label x:Name="nighTemp"        Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
-                        <Label x:Name="dayFl"           Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2"/>
-                        <Label x:Name="nighFl"          Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2"/>
+                        <Label Text="Temperature"       Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" FontSize="Title"/>
+                        <Label Text="Feels Like"        Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" FontSize="Title"/>
+
+                        <Label Text="Day"               Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Start"/>
+                        <Label Text="Night"             Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Start"/>
+                        <Label x:Name="dayTemp"         Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Start"/>
+                        <Label x:Name="nighTemp"        Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Start"/>
+
+                        
+
+                        <Label Text="Day"               Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Start" Margin="20,0,0,0"/>
+                        <Label Text="Night"             Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Start" Margin="20,0,0,0"/>
+                        <Label x:Name="dayFl"           Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Start" Margin="20,0,0,0"/>
+                        <Label x:Name="nighFl"          Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Start" Margin="20,0,0,0"/>
                     </Grid>
                     <!--<Label Text="Temperature"       Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1"/>
                     <Label Text="Feels Like"        Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="1"/>
@@ -130,17 +142,17 @@
             
 
             <!--Wind and Atmo-->
-            <Frame Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="1" Grid.RowSpan="2">
+            <Frame Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="1" Grid.RowSpan="2" CornerRadius="50">
                 <StackLayout>
-                    <Grid>
+                    <Grid BackgroundColor="Transparent">
                         <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Label Text="Wind" HorizontalOptions="Center" Grid.Column="0" Grid.ColumnSpan="2"/>
                         <Label Text="Speed"       Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
@@ -151,17 +163,17 @@
                     </Grid>
                 </StackLayout>
             </Frame>
-            <Frame Grid.Column="1" Grid.Row="7" Grid.RowSpan="2">
+            <Frame Grid.Column="1" Grid.Row="7" Grid.RowSpan="2" CornerRadius="50">
                 <StackLayout>
-                    <Grid>
+                    <Grid BackgroundColor="Transparent">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
                         </Grid.RowDefinitions>
 
 

@@ -68,14 +68,15 @@ namespace Foremaui.ViewModels
 
         public MainViewModel()
         {
-            if (Preferences.Default.Get("use_gps_on_startup", false))
-            {
-               GetUserForecastAsync();
-            }
-            else
-            {
-                GetCityForecastAsync();
-            }
+            //if (Preferences.Default.Get("use_gps_on_startup", false))
+            //{
+            //   GetUserForecastAsync();
+            //}
+            //else
+            //{
+            //    //GetCityForecastAsync();
+            //}
+            GetCityForecastAsync();
         }
 
 
@@ -145,6 +146,8 @@ namespace Foremaui.ViewModels
                                 item.Date = UnixTimeStampToDateTime(item.Dt);
                                 item.SunRiseDt= UnixTimeStampToDateTime(item.Sunrise);
                                 item.SunSetDt= UnixTimeStampToDateTime(item.Sunset);
+                                item.MoonSetDt = UnixTimeStampToDateTime(item.Moonset);
+                                item.MoonRiseDt = UnixTimeStampToDateTime(item.Moonrise);
                             }
                         }
                     }

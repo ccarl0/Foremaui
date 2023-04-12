@@ -84,7 +84,7 @@ namespace Foremaui.Models
         [JsonPropertyName("moonrise")]
         public uint Moonrise { get; set; }
 
-        public DateTime MonnRiseDt { get; set; }
+        public DateTime MoonRiseDt { get; set; }
 
         [JsonPropertyName("moonset")]
         public uint Moonset { get; set; }
